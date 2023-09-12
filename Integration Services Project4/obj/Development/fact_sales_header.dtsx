@@ -1,0 +1,1320 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/7/2023 5:53:31 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DANIEL"
+  DTS:CreatorName="Daniel\Tali"
+  DTS:DTSID="{AE272A75-A9F8-400A-B6B2-FD0E7A12B864}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1037"
+  DTS:ObjectName="fact_sales_header"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{4EB5E456-9E6A-4F50-8FF2-FF112EC7B6C4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CDCED8AB-45EA-414F-96AB-82DED9DB5156}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="max_modifieddate">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/2000</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{744FF06D-20FD-4BCD-A2B4-AD9D43EAE06E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="prd_max_modifieddate">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/2000</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task el salesorderheader"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B52C2250-6D5D-4FB8-B9CC-AE9C308D83D2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task el salesorderheader"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task el salesorderheader\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[salesorderheader]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1255</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{22DD0268-CF3A-4AE7-AD92-2B2534C6B641}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[__MSSQLSERVER_2.AdventureWorks2019]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesOrderID]"
+                      cachedDataType="i4"
+                      cachedName="SalesOrderID"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RevisionNumber]"
+                      cachedDataType="ui1"
+                      cachedName="RevisionNumber"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevisionNumber]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DueDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DueDate"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDate]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ShipDate"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipDate]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Status]"
+                      cachedDataType="ui1"
+                      cachedName="Status"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OnlineOrderFlag]"
+                      cachedDataType="bool"
+                      cachedName="OnlineOrderFlag"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OnlineOrderFlag]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[OnlineOrderFlag]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesOrderNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="SalesOrderNumber"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchaseOrderNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="PurchaseOrderNumber"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseOrderNumber]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseOrderNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AccountNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="AccountNumber"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountNumber]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesPersonID]"
+                      cachedDataType="i4"
+                      cachedName="SalesPersonID"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TerritoryID]"
+                      cachedDataType="i4"
+                      cachedName="TerritoryID"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TerritoryID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BillToAddressID]"
+                      cachedDataType="i4"
+                      cachedName="BillToAddressID"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BillToAddressID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[BillToAddressID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipToAddressID]"
+                      cachedDataType="i4"
+                      cachedName="ShipToAddressID"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipToAddressID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipToAddressID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipMethodID]"
+                      cachedDataType="i4"
+                      cachedName="ShipMethodID"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipMethodID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipMethodID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreditCardID]"
+                      cachedDataType="i4"
+                      cachedName="CreditCardID"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreditCardApprovalCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="CreditCardApprovalCode"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardApprovalCode]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardApprovalCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrencyRateID]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyRateID"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyRateID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyRateID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SubTotal]"
+                      cachedDataType="cy"
+                      cachedName="SubTotal"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubTotal]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubTotal]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TaxAmt]"
+                      cachedDataType="cy"
+                      cachedName="TaxAmt"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Freight]"
+                      cachedDataType="cy"
+                      cachedName="Freight"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TotalDue]"
+                      cachedDataType="cy"
+                      cachedName="TotalDue"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalDue]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalDue]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Comment]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="Comment"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rowguid]"
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                      dataType="i4"
+                      name="SalesOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevisionNumber]"
+                      dataType="ui1"
+                      name="RevisionNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDate]"
+                      dataType="dbTimeStamp"
+                      name="DueDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      dataType="ui1"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OnlineOrderFlag]"
+                      dataType="bool"
+                      name="OnlineOrderFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="SalesOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="PurchaseOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="AccountNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      dataType="i4"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                      dataType="i4"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BillToAddressID]"
+                      dataType="i4"
+                      name="BillToAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipToAddressID]"
+                      dataType="i4"
+                      name="ShipToAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipMethodID]"
+                      dataType="i4"
+                      name="ShipMethodID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardID]"
+                      dataType="i4"
+                      name="CreditCardID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardApprovalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="CreditCardApprovalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyRateID]"
+                      dataType="i4"
+                      name="CurrencyRateID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubTotal]"
+                      dataType="cy"
+                      name="SubTotal" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                      dataType="cy"
+                      name="TaxAmt" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                      dataType="cy"
+                      name="Freight" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalDue]"
+                      dataType="cy"
+                      name="TotalDue" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      dataType="wstr"
+                      length="128"
+                      name="Comment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task el salesorderheader\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Sales].[SalesOrderHeader]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select *
+from sales.salesorderheader
+where modifieddate&gt;?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1255</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{CDCED8AB-45EA-414F-96AB-82DED9DB5156};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{34B6FCB1-03EE-4B95-A11C-3283804F38CC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.AdventureWorks2019]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
+                      name="SalesOrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevisionNumber]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]"
+                      name="RevisionNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDate]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]"
+                      name="DueDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                      name="ShipDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[OnlineOrderFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OnlineOrderFlag]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[OnlineOrderFlag]"
+                      name="OnlineOrderFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderNumber]"
+                      length="25"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                      name="SalesOrderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseOrderNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseOrderNumber]"
+                      length="25"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseOrderNumber]"
+                      name="PurchaseOrderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountNumber]"
+                      length="15"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountNumber]"
+                      name="AccountNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      name="SalesPersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TerritoryID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TerritoryID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TerritoryID]"
+                      name="TerritoryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[BillToAddressID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BillToAddressID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[BillToAddressID]"
+                      name="BillToAddressID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipToAddressID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipToAddressID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipToAddressID]"
+                      name="ShipToAddressID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipMethodID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipMethodID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipMethodID]"
+                      name="ShipMethodID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditCardID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardID]"
+                      name="CreditCardID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardApprovalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditCardApprovalCode]"
+                      length="15"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardApprovalCode]"
+                      name="CreditCardApprovalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyRateID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrencyRateID]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyRateID]"
+                      name="CurrencyRateID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubTotal]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SubTotal]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubTotal]"
+                      name="SubTotal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxAmt]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                      name="TaxAmt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Freight]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]"
+                      name="Freight"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalDue]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalDue]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalDue]"
+                      name="TotalDue"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]"
+                      length="128"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      name="Comment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                      name="rowguid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
+                      dataType="i4"
+                      name="SalesOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevisionNumber]"
+                      dataType="ui1"
+                      name="RevisionNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDate]"
+                      dataType="dbTimeStamp"
+                      name="DueDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                      dataType="ui1"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OnlineOrderFlag]"
+                      dataType="bool"
+                      name="OnlineOrderFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="SalesOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="PurchaseOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="AccountNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      dataType="i4"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TerritoryID]"
+                      dataType="i4"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BillToAddressID]"
+                      dataType="i4"
+                      name="BillToAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipToAddressID]"
+                      dataType="i4"
+                      name="ShipToAddressID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipMethodID]"
+                      dataType="i4"
+                      name="ShipMethodID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditCardID]"
+                      dataType="i4"
+                      name="CreditCardID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditCardApprovalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="CreditCardApprovalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrencyRateID]"
+                      dataType="i4"
+                      name="CurrencyRateID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SubTotal]"
+                      dataType="cy"
+                      name="SubTotal" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxAmt]"
+                      dataType="cy"
+                      name="TaxAmt" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Freight]"
+                      dataType="cy"
+                      name="Freight" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalDue]"
+                      dataType="cy"
+                      name="TotalDue" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]"
+                      dataType="wstr"
+                      length="128"
+                      name="Comment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
+                      name="SalesOrderID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevisionNumber]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevisionNumber]"
+                      name="RevisionNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      name="OrderDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDate]"
+                      name="DueDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
+                      name="ShipDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
+                      name="Status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OnlineOrderFlag]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OnlineOrderFlag]"
+                      name="OnlineOrderFlag" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderNumber]"
+                      name="SalesOrderNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseOrderNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseOrderNumber]"
+                      name="PurchaseOrderNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountNumber]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountNumber]"
+                      name="AccountNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                      name="SalesPersonID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TerritoryID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TerritoryID]"
+                      name="TerritoryID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BillToAddressID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BillToAddressID]"
+                      name="BillToAddressID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipToAddressID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipToAddressID]"
+                      name="ShipToAddressID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipMethodID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipMethodID]"
+                      name="ShipMethodID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditCardID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditCardID]"
+                      name="CreditCardID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditCardApprovalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditCardApprovalCode]"
+                      name="CreditCardApprovalCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrencyRateID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrencyRateID]"
+                      name="CurrencyRateID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SubTotal]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SubTotal]"
+                      name="SubTotal" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxAmt]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxAmt]"
+                      name="TaxAmt" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Freight]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Freight]"
+                      name="Freight" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalDue]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalDue]"
+                      name="TotalDue" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
+                      name="Comment" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task el salesorderheader.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task el salesorderheader\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task el salesorderheader\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task - last update var"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{100CC707-E4FE-4CF9-BBBB-E2BA85A281E5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task - last update var"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{22DD0268-CF3A-4AE7-AD92-2B2534C6B641}"
+          SQLTask:SqlStatementSource="select max(modifieddate)as max_modifieddate&#xA;from stg.salesorderheader"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="max_modifieddate"
+            SQLTask:DtsVariableName="User::max_modifieddate" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task load to prd"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8EBA95BE-1BAE-40E3-87E9-09A81FFB2B39}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task load to prd"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{22DD0268-CF3A-4AE7-AD92-2B2534C6B641}"
+          SQLTask:SqlStatementSource="begin try &#xA;begin transaction &#xA;&#xA;insert into prd.fact_salesorderheader&#xA;select &#xA;    [SalesOrderID],&#xA;    [RevisionNumber] ,&#xA;    [OrderDate] ,&#xA;    [DueDate] ,&#xA;    [ShipDate] ,&#xA;&#x9;datediff(d,orderdate,shipdate) as duration_untill_shipping,&#xA;&#x9;case when datediff (d,orderdate,shipdate) &gt; 7 then 'delay'&#xA;&#x9;when datediff (d,orderdate,shipdate) = 7 then 'regular'&#xA;&#x9;when datediff (d,orderdate,shipdate) &lt; 7 then 'in_advance'&#xA;&#x9;end as shipping_schedule_desc,&#xA;    [Status] ,&#xA;    [OnlineOrderFlag] ,&#xA;    [SalesOrderNumber] ,&#xA;    [PurchaseOrderNumber] ,&#xA;    [AccountNumber] ,&#xA;    [CustomerID] ,&#xA;    [SalesPersonID] ,&#xA;    [TerritoryID] ,&#xA;    [BillToAddressID] ,&#xA;    [ShipToAddressID] ,&#xA;    [ShipMethodID] ,&#xA;    [CreditCardID] ,&#xA;    [CreditCardApprovalCode],&#xA;    [CurrencyRateID] ,&#xA;    [SubTotal] ,&#xA;    [TaxAmt] ,&#xA;    [Freight] ,&#xA;    [TotalDue] ,&#xA;    [Comment] ,&#xA;    [rowguid] ,&#xA;    [ModifiedDate]&#xA;from stg.salesorderheader&#xA;where modifieddate &gt; ?&#xA;&#xA;commit transaction &#xA;end try&#xA;&#xA;begin catch&#xA;  ROLLBACK transaction&#xA;end catch" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::prd_max_modifieddate"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task prd var"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C9FA5D7A-5600-499E-8C5F-A9AA88E0A88A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task prd var"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{22DD0268-CF3A-4AE7-AD92-2B2534C6B641}"
+          SQLTask:SqlStatementSource="select max(modifieddate)as max_modifieddate&#xA;from prd.fact_salesorderheader"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="max_modifieddate"
+            SQLTask:DtsVariableName="User::prd_max_modifieddate" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{EBA13566-E66D-4831-9131-E41098B6F9BB}"
+      DTS:From="Package\Execute SQL Task - last update var"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task el salesorderheader" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{AE366CEB-8532-4C7A-80A6-FBD736E157A9}"
+      DTS:From="Package\Data Flow Task el salesorderheader"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Execute SQL Task prd var" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{5C43C8BB-3718-4E2B-B27B-1E69AA71126B}"
+      DTS:From="Package\Execute SQL Task prd var"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Execute SQL Task load to prd" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="247,42"
+          Id="Package\Data Flow Task el salesorderheader"
+          TopLeft="202,139" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Execute SQL Task - last update var"
+          TopLeft="87,45" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="168.5,87">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="157,52"
+              Start="0,0"
+              End="157,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="4,26" />
+                  <mssgle:LineSegment
+                    End="153,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="153,26"
+                    Point2="157,26"
+                    Point3="157,30" />
+                  <mssgle:LineSegment
+                    End="157,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Execute SQL Task prd var"
+          TopLeft="323,250" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="325.5,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97.5,69"
+              Start="0,0"
+              End="97.5,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="4,34.5" />
+                  <mssgle:LineSegment
+                    End="93.5,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93.5,34.5"
+                    Point2="97.5,34.5"
+                    Point3="97.5,38.5" />
+                  <mssgle:LineSegment
+                    End="97.5,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Execute SQL Task load to prd"
+          TopLeft="415,341" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="423,292">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101,49"
+              Start="0,0"
+              End="101,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="97,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97,24.5"
+                    Point2="101,24.5"
+                    Point3="101,28.5" />
+                  <mssgle:LineSegment
+                    End="101,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task el salesorderheader">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Data Flow Task el salesorderheader\OLE DB Source"
+          TopLeft="73,65" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Data Flow Task el salesorderheader\OLE DB Destination"
+          TopLeft="210,180" />
+        <EdgeLayout
+          Id="Package\Data Flow Task el salesorderheader.Paths[OLE DB Source Output]"
+          TopLeft="148,107">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="147.5,73"
+              Start="0,0"
+              End="147.5,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5"
+                    Point2="0,36.5"
+                    Point3="4,36.5" />
+                  <mssgle:LineSegment
+                    End="143.5,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="143.5,36.5"
+                    Point2="147.5,36.5"
+                    Point3="147.5,40.5" />
+                  <mssgle:LineSegment
+                    End="147.5,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task el salesorderheader\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task el salesorderheader\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
